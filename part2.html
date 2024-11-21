@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Number Series Analysis</title>
+
+    </head>
+
+    <body>
+
+        <h2>Number Series Analysis</h2>
+        <form>
+            <input type="text" id="numberz" placeholder="Enter numbers separated by commas" />
+        </form>
+        <div class="result">
+            Results:
+            <div class="output" id="output"></div>
+        </div>
+
+        <script>
+            document.getElementById("numberz").addEventListener("input", function () {
+                // Get the value from the input field
+                var input = document.getElementById("numberz").value;
+
+                // Select the output container
+                var output = document.getElementById("output");
+
+                // Split the input into an array and remove extra spaces
+                var numberStrings = input.split(",");
+
+                // Parse the strings into numbers and filter out invalid entries
+                var numbers = [];
+                for (var i = 0; i < numberStrings.length; i++) {
+                    var trimmedNumber = numberStrings[i].trim();
+                    var parsedNumber = parseFloat(trimmedNumber);
+
+                    if (!isNaN(parsedNumber)) {
+                        numbers.push(parsedNumber);
+                    }
+                }
+
+                // If no valid numbers, display an error message
+                if (numbers.length === 0) {
+                    output.innerHTML = "Please enter valid numbers.";
+                    return;
+                }
+
+                // Calculate the maximum value
+                var max = numbers[0];
+                for (var i = 1; i < numbers.length; i++) {
+                    if (numbers[i] > max) {
+                        max = numbers[i];
+                    }
+                }
+
+                // Calculate the minimum value
+                var min = numbers[0];
+                for (var i = 1; i < numbers.length; i++) {
+                    if (numbers[i] < min) {
+                        min = numbers[i];
+                    }
+                }
+
+                // Calculate the sum
+                var sum = 0;
+                for (var i = 0; i < numbers.length; i++) {
+                    sum += numbers[i];
+                }
+
+                // Calculate the average
+                var avg = sum / numbers.length;
+
+                // Reverse the array
+                var reverseArray = [];
+                for (var i = numbers.length - 1; i >= 0; i--) {
+                    reverseArray.push(numbers[i]);
+                }
+
+                // Display the results
+                output.innerHTML =
+                    "<p>Max: " + max + "</p>" +
+                    "<p>Min: " + min + "</p>" +
+                    "<p>Sum: " + sum + "</p>" +
+                    "<p>Average: " + avg.toFixed(2) + "</p>" +
+                    "<p>Reverse Order: " + reverseArray.join(", ") + "</p>";
+            });
+
+        </script>
+    </body>
+
+</html>

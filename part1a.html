@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quote Generator</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                background-color: #f4f4f9;
+                margin: 0;
+                padding: 0;
+            }
+
+            .quote-box {
+                margin: 20px auto;
+                padding: 20px;
+                width: 300px;
+                border: 2px solid #424242;
+                border-radius: 10px;
+                background-color: #fff;
+                font-size: 16px;
+            }
+
+            .color-buttons button {
+                margin: 5px;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                color: white;
+            }
+
+            .red {
+                background-color: red;
+            }
+
+            .blue {
+                background-color: blue;
+            }
+
+            .green {
+                background-color: green;
+            }
+
+            .purple {
+                background-color: purple;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="quote-box" id="quoteBox">Your random quote will appear here!</div>
+        <div class="color-buttons">
+            <button class="red" onclick="changeBoxStyle('red')">Red</button>
+            <button class="blue" onclick="changeBoxStyle('blue')">Blue</button>
+            <button class="green" onclick="changeBoxStyle('green')">Green</button>
+            <button class="purple" onclick="changeBoxStyle('purple')">Purple</button>
+        </div>
+
+        <script>
+            // List of quotes
+            const quotes = [
+                "You don’t get to 500 million friends without making a few enemies.",
+                "The internet's not written in pencil, Mark, it's written in ink.",
+                "When you play the game of thrones, you win or you die. There is no middle ground.",
+                "The bigger the battle, the sweeter the victory."
+            ];
+
+            // Display a random quote
+            const quoteBox = document.getElementById("quoteBox");
+            quoteBox.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+
+            // Change the box color
+            function changeBoxStyle(color) {
+                const styles = {
+                    red: { font: "Courier New, monospace", size: "20px", color: "red", bgColor: "rgba(255, 0, 0, 0.1)" },
+                    blue: { font: "Arial, sans-serif", size: "18px", color: "blue", bgColor: "rgba(0, 0, 255, 0.1)" },
+                    green: { font: "Verdana, sans-serif", size: "19px", color: "green", bgColor: "rgba(0, 128, 0, 0.1)" },
+                    purple: { font: "Georgia, serif", size: "22px", color: "purple", bgColor: "rgba(128, 0, 128, 0.1)" }
+                };
+
+                // Get the selected style based on color
+                const selectedStyle = styles[color];
+                quoteBox.style.color = selectedStyle.color;
+                quoteBox.style.borderColor = selectedStyle.color;
+                quoteBox.style.backgroundColor = selectedStyle.bgColor;
+                quoteBox.style.fontFamily = selectedStyle.font;
+                quoteBox.style.fontSize = selectedStyle.size;
+            }
+        </script>
+    </body>
+
+</html>

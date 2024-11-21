@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weight Converter</title>
+
+
+    </head>
+
+    <body>
+        <div class="converter">
+            <h2>Weight Converter</h2>
+            <input type="number" id="weight" placeholder="Enter weight" />
+            <select id="unit">
+                <option value="kgToLb">Kilograms to Pounds</option>
+                <option value="lbToKg">Pounds to Kilograms</option>
+            </select>
+            <button onclick="convert()">Convert</button>
+            <div class="result">
+                Result: <p id="resultWeight"></p>
+            </div>
+        </div>
+        <script>
+            function convert() {
+                const weight = document.getElementById("weight").value;
+                const unit = document.getElementById("unit").value;
+                const resultWeight = document.getElementById("resultWeight");
+
+                // Ensure valid input
+                if (weight === "" || isNaN(weight)) {
+                    resultWeight.textContent = "Please enter a valid number.";
+                    return;
+                }
+
+                // Conversion factors
+                const KG_TO_LB = 2.2046;
+                const LB_TO_KG = 0.4536;
+
+                let result;
+
+                // Perform conversion
+                if (unit === "kgToLb") {
+                    result = (weight * KG_TO_LB).toFixed(2) + " pounds";
+                } else if (unit === "lbToKg") {
+                    result = (weight * LB_TO_KG).toFixed(2) + " kilograms";
+                } else {
+                    result = "Invalid conversion type.";
+                }
+
+                // Display result
+                resultWeight.textContent = result;
+            }
+
+
+        </script>
+    </body>
+
+</html>
