@@ -61,7 +61,7 @@
         </div>
 
         <script>
-            // List of quotes
+
             const quotes = [
                 "You don’t get to 500 million friends without making a few enemies.",
                 "The internet's not written in pencil, Mark, it's written in ink.",
@@ -69,11 +69,10 @@
                 "The bigger the battle, the sweeter the victory."
             ];
 
-            // Display a random quote
+
             const quoteBox = document.getElementById("quoteBox");
             quoteBox.textContent = quotes[Math.floor(Math.random() * quotes.length)];
 
-            // Change the box color
             function changeBoxStyle(color) {
                 const styles = {
                     red: { font: "Courier New, monospace", size: "20px", color: "red", bgColor: "rgba(255, 0, 0, 0.1)" },
@@ -82,7 +81,6 @@
                     purple: { font: "Georgia, serif", size: "22px", color: "purple", bgColor: "rgba(128, 0, 128, 0.1)" }
                 };
 
-                // Get the selected style based on color
                 const selectedStyle = styles[color];
                 quoteBox.style.color = selectedStyle.color;
                 quoteBox.style.borderColor = selectedStyle.color;

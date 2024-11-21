@@ -28,19 +28,19 @@
                 const unit = document.getElementById("unit").value;
                 const resultWeight = document.getElementById("resultWeight");
 
-                // Ensure valid input
+
                 if (weight === "" || isNaN(weight)) {
                     resultWeight.textContent = "Please enter a valid number.";
                     return;
                 }
 
-                // Conversion factors
+
                 const KG_TO_LB = 2.2046;
                 const LB_TO_KG = 0.4536;
 
                 let result;
 
-                // Perform conversion
+
                 if (unit === "kgToLb") {
                     result = (weight * KG_TO_LB).toFixed(2) + " pounds";
                 } else if (unit === "lbToKg") {
@@ -49,7 +49,7 @@
                     result = "Invalid conversion type.";
                 }
 
-                // Display result
+
                 resultWeight.textContent = result;
             }
 

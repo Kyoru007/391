@@ -21,16 +21,16 @@
 
         <script>
             document.getElementById("numberz").addEventListener("input", function () {
-                // Get the value from the input field
+
                 var input = document.getElementById("numberz").value;
 
-                // Select the output container
+
                 var output = document.getElementById("output");
 
-                // Split the input into an array and remove extra spaces
+
                 var numberStrings = input.split(",");
 
-                // Parse the strings into numbers and filter out invalid entries
+
                 var numbers = [];
                 for (var i = 0; i < numberStrings.length; i++) {
                     var trimmedNumber = numberStrings[i].trim();
@@ -41,13 +41,13 @@
                     }
                 }
 
-                // If no valid numbers, display an error message
+
                 if (numbers.length === 0) {
                     output.innerHTML = "Please enter valid numbers.";
                     return;
                 }
 
-                // Calculate the maximum value
+
                 var max = numbers[0];
                 for (var i = 1; i < numbers.length; i++) {
                     if (numbers[i] > max) {
@@ -55,7 +55,7 @@
                     }
                 }
 
-                // Calculate the minimum value
+
                 var min = numbers[0];
                 for (var i = 1; i < numbers.length; i++) {
                     if (numbers[i] < min) {
@@ -63,22 +63,22 @@
                     }
                 }
 
-                // Calculate the sum
+
                 var sum = 0;
                 for (var i = 0; i < numbers.length; i++) {
                     sum += numbers[i];
                 }
 
-                // Calculate the average
+
                 var avg = sum / numbers.length;
 
-                // Reverse the array
+
                 var reverseArray = [];
                 for (var i = numbers.length - 1; i >= 0; i--) {
                     reverseArray.push(numbers[i]);
                 }
 
-                // Display the results
+
                 output.innerHTML =
                     "<p>Max: " + max + "</p>" +
                     "<p>Min: " + min + "</p>" +
