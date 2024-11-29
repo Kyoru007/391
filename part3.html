@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+
+        <textarea name="texta1" id="txt"></textarea>
+
+
+        <button onclick="khali()">khali</button>
+        <button onclick="puji()">puji</button>
+        <button onclick="shajano()">shajao</button>
+        <button onclick="reverse()">ulta</button>
+        <button onclick="stripBlank()">stripBlank</button>
+        <script>
+            // Reference to the textarea
+            const textArea = document.getElementById("txt");
+            let isUpperCase = true;
+
+            function khali() {
+                document.getElementById("txt").value = "";
+            }
+            function puji() {
+                textArea.value = textArea.value.toUpperCase()
+            }
+            function shajano() {
+                let arr = textArea.value.split("\n")
+                console.log(arr)
+                arr.sort()
+                textArea.value = arr.join("\n")
+                console.log(arr)
+
+
+            }
+            function reverse() {
+                textArea.value = textArea.value.split("\n").reverse().join("\n");
+            }
+            function stripBlank() {
+                let arr = textArea.value.split("\n")
+                for (i = 0; i <= arr.length; i++) {
+                    if (arr[i] == "") {
+                        arr.pop(i)
+                        i -= 1
+                    }
+                }
+                textArea.value = arr.join("\n")
+            }
+            // Function to capitalize or decapitalize text
+
+        </script>
+    </body>
+
+</html>
