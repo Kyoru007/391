@@ -10,14 +10,16 @@
     <body>
 
 
-        <textarea name="texta1" id="txt"></textarea>
+        <textarea name="texta1" id="txt" rows="10px" cols="10px"></textarea>
 
 
         <button onclick="khali()">khali</button>
-        <button onclick="puji()">puji</button>
+        <button onclick="capitalize()">puji</button>
         <button onclick="shajano()">shajao</button>
         <button onclick="reverse()">ulta</button>
         <button onclick="stripBlank()">stripBlank</button>
+        <button onclick="addNumbers()">addNumbers</button>
+        <button onclick="shuffle()">shuffle</button>
         <script>
             // Reference to the textarea
             const textArea = document.getElementById("txt");
@@ -26,7 +28,7 @@
             function khali() {
                 document.getElementById("txt").value = "";
             }
-            function puji() {
+            function capitalize() {
                 textArea.value = textArea.value.toUpperCase()
             }
             function shajano() {
@@ -42,15 +44,49 @@
                 textArea.value = textArea.value.split("\n").reverse().join("\n");
             }
             function stripBlank() {
-                let arr = textArea.value.split("\n")
-                for (i = 0; i <= arr.length; i++) {
-                    if (arr[i] == "") {
-                        arr.pop(i)
-                        i -= 1
+                // Split the text area content into an array of lines
+                let arr = textArea.value.split("\n");
+
+                // Create a new array to hold valid lines
+                let arr1 = [];
+
+                // Loop through each line
+                for (i = 0; i < arr.length; i++) {
+                    if (arr[i].trim().length > 0) {
+                        arr1.push(arr[i])
                     }
+                }
+
+                // Join the filtered lines back and update the text area
+                textArea.value = arr1.join("\n");
+            }
+            function addNumbers() {
+                let arr = textArea.value.split("\n");
+                let arr1 = []
+                for (i = 0; i < arr.length; i++) {
+                    arr[i] = i + 1 + ") " + arr[i]
                 }
                 textArea.value = arr.join("\n")
             }
+            function shuffle() {
+                let arr = textArea.value.split("\n");
+                let arr1 = []
+                for (i = 0; i < arr.length; i++) {
+                    if (arr[i] in arr1) {
+                        pass
+                    }
+                    else {
+                        arr1.push(arr[Math.floor(Math.random() * arr1.length)])
+                    }
+
+
+                }
+                textArea.value = arr.join("\n")
+            }
+
+
+
+
             // Function to capitalize or decapitalize text
 
         </script>
