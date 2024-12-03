@@ -71,7 +71,7 @@
 
 
             const quoteBox = document.getElementById("quoteBox");
-            quoteBox.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+            quoteBox.innerHTML= quotes[Math.floor(Math.random() * quotes.length)];
 
             function changeBoxStyle(color) {
                 const styles = {
